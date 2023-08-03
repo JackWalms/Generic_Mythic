@@ -1,5 +1,141 @@
-Test:
-  Type: Pig
+GENERIC-Template-NPC: &NPC_TEMPLATE
+  Type: HUSK
+  Faction: ALLY
+  Options:
+    MovementSpeed: 0.3
+    PreventOtherDrops: true
+    PreventRandomEquipment: true
+    Silent: true
+    Despawn: false
+    Collidable: true
+    Invincible: true
+    AlwaysShowName: true
+    PreventJockeyMounts: true
+  DamageModifiers:
+    - DROWNING -0.01
+    - VOID -0.01
+    - STARVATION -0.01
+    - POISON -0.01
+    - LAVA -0.01
+    - FALLING_BLOCK -0.01
+    - MELTING -0.01
+    - FIRE_TICK -0.01
+    - FIRE -0.01
+    - HOT_FLOOR -0.01
+    - FALL -0.01
+    - SUFFOCATION -0.01
+    - CONTACT -0.01
+  AIGoalSelectors:
+    - 0 clear
+  AITargetSelectors:
+    - 0 clear
 
-Update-Test:
-  Type: Cow
+GENERIC-Template-FOE: &FOE_TEMPLATE
+  Type: HUSK
+  Faction: FOE
+  Options:
+    PreventOtherDrops: true
+    PreventRandomEquipment: true
+    Silent: true
+    Despawn: false
+    AlwaysShowName: true
+    PreventJockeyMounts: true
+  DamageModifiers:
+    - DROWNING -0.01
+    - VOID -0.01
+    - STARVATION -0.01
+    - POISON -0.01
+    - LAVA -0.01
+    - FALLING_BLOCK -0.01
+    - MELTING -0.01
+    - FIRE_TICK -0.01
+    - FIRE -0.01
+    - HOT_FLOOR -0.01
+    - FALL -0.01
+    - SUFFOCATION -0.01
+    - CONTACT -0.01
+  AIGoalSelectors:
+    - 0 clear
+    - 1 meleeattack
+    - 2 lookaround
+  AITargetSelectors:
+    - 0 clear
+    - 1 players
+
+NEW_STRUCTURE_MARKER:
+  <<: *NPC_TEMPLATE
+  Options:
+    MovementSpeed: 0.3
+    PreventOtherDrops: true
+    PreventRandomEquipment: true
+    Silent: true
+    Despawn: false
+    Collidable: true
+    Invincible: true
+    AlwaysShowName: true
+    PreventJockeyMounts: true
+    NoGravity: true
+  Skills:
+    - skill{s=GENERIC-Effect-Exclamation_Point} @Self ~onTimer:2
+    - skill{s=GENERIC-Effect-Head_Shake} @Self ~onTimer:300
+  AIGoalSelectors:
+    - 0 clear
+  AITargetSelectors:
+    - 0 clear
+
+PILLAGER_CAPTAIN:
+  Type: PILLAGER
+  Skills:
+    - potion{type=BAD_OMEN;duration=10000;level=0;p=false} @PIR{r=10} ~onDeath
+  Equipment:
+  - PILLAGER_BANNER HEAD
+
+MIRROR:
+  <<: *NPC_TEMPLATE
+  Display: ""
+  Options:
+    MovementSpeed: 0.3
+    PreventOtherDrops: true
+    PreventRandomEquipment: true
+    Silent: true
+    Despawn: false
+    Collidable: false
+    Invincible: true
+    AlwaysShowName: true
+    PreventJockeyMounts: true
+    Invisible: true
+  Skills:
+      - sudoskill{s=[ - aura{auraName=REFLECTION;i=1;d=10;mergeAll=true;refreshDuration=true;
+                             oS=[ - summon{t=REFLECTION;sip=true;sio=true} @SelfLocation
+
+                                  - delay 1
+
+                                  - signal{s=DISGUISE} @LivingInWorld ];
+                             oT=[ - setvariable{var=caster.x_diff ;value="<trigger.l.x.double>-<caster.l.x.double>";type=FLOAT ;save=true}
+                                  - setvariable{var=caster.y_diff ;value="<trigger.l.y.double>-<caster.l.y.double>";type=FLOAT ;save=true}
+                                  - setvariable{var=caster.z_diff ;value="<trigger.l.z.double>-<caster.l.z.double>";type=FLOAT ;save=true}
+
+                                  - setvariable{var=caster.m_x    ;value="<trigger.l.x.double>";type=FLOAT ;save=true}
+                                  - setvariable{var=caster.m_y    ;value="<trigger.l.y.double>";type=FLOAT ;save=true}
+                                  - setvariable{var=caster.m_z    ;value="<trigger.l.z.double>";type=FLOAT ;save=true}
+
+                                  - setvariable{var=caster.t_pitch;value="<caster.l.pitch>";type=FLOAT ;save=true}
+                                  - setvariable{var=caster.t_yaw  ;value="<caster.l.yaw>";type=FLOAT ;save=true}
+
+                                  - signal{s=TELEPORT} @LivingInWorld ];
+                             oE=[ - remove @LivingInWorld{conditions=[ - varEquals{var=target.owner_uuid;value="<caster.uuid>"} ]} ]} @Self
+
+                      - delay 1 ];cat=true;sync=true} @PIR{r=30} ~onTimer:1
+
+REFLECTION:
+  <<: *NPC_TEMPLATE
+  Display: ""
+  Skills:
+    - setvariable{var=caster.owner_uuid;value="<target.uuid>";type=STRING;save=true} @Owner ~onSpawn
+
+    - skill{s=[ - disguise{d="PLAYER <trigger.name>"} ?varEquals{var=caster.owner_uuid;value="<trigger.uuid>"} ];sync=true} @Self ~onSignal:DISGUISE
+    - skill{s=[ - teleportto{location=<trigger.var.m_x>-<trigger.var.x_diff>,<trigger.var.m_y>-<trigger.var.y_diff>,<trigger.var.m_z>+<trigger.var.z_diff>;
+                             pitch=<trigger.l.pitch>;
+                             yaw=180-<trigger.l.yaw>} @Self ?varEquals{var=caster.owner_uuid;value="<trigger.uuid>"}
+
+                - delay 1 ];sync=true} @Self ~onSignal:TELEPORT

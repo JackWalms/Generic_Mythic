@@ -1,2 +1,5 @@
 Test:
   Type: Pig
+
+Update-Test:
+  Type: Cow

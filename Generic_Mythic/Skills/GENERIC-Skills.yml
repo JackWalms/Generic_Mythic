@@ -2,18 +2,20 @@ GENERIC-Item_Drop:
   Skills:
     - dropitem{i=<skill.internal>} @self
     - delay 1
-    - aura{oT=[
-              - glow{color=WHITE}
-              - holo{text="<skill.name>";time=2} @origin{yOffset=0.4} ?onground
-              ];name=drop;i=1;d=99999} @ItemsInRadius{r=3;conditions=[  - entityItemType{i=<skill.internal>} true ]}}
+    - aura{oT=[ - glow{color=WHITE}
+                - holo{text="<skill.name>";time=2} @origin{yOffset=0.4} ?onground
+
+                - delay 1 ];name=drop;i=1;d=99999} @ItemsInRadius{r=3;conditions=[  - entityItemType{i=<skill.internal>} true ]}}
 
 GENERIC-Effect-Level_Up:
   Skills:
-    - summon{t=GEN-EXP-1;a=20;r=2} @self
-    - summon{t=GEN-EXP-2;a=15;r=2} @self
-    - summon{t=GEN-EXP-3;a=10;r=2} @self
-    - summon{t=GEN-EXP-4;a=5 ;r=2} @self
+    - summon{t=GENERIC-EXP-1;a=20;r=2} @self
+    - summon{t=GENERIC-EXP-2;a=15;r=2} @self
+    - summon{t=GENERIC-EXP-3;a=10;r=2} @self
+    - summon{t=GENERIC-EXP-4;a=5 ;r=2} @self
+    
     - delay 10
+    
     - sound{s=entity.player.levelup} @self
 
 GENERIC-Effect-Head_Shake:

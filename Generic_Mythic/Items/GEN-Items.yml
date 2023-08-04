@@ -1,0 +1,46 @@
+### ------------------------------ ###
+
+GENERIC-Offset_Stick:
+  Id: STICK
+  Display: "Offset Stick"
+  Lore:
+    - "Displays the coord offsets from"
+    - "your location to the target mob."
+  Skills:
+    - skill{s=[ - setvariable{var=caster.x_diff;value=<caster.l.x.double>-<target.l.x.double>;type=FLOAT}
+                - setvariable{var=caster.y_diff;value=<caster.l.y.double>-<target.l.y.double>;type=FLOAT}
+                - setvariable{var=caster.z_diff;value=<caster.l.z.double>-<target.l.z.double>;type=FLOAT}
+
+                - delay 1
+
+                - message{m=""} @self{targetCreative=true}
+                - jsonmessage{m="{"text":"X,Y,Z = @Origin{xOffset=%math_2:2_<caster.var.x_diff>%;yOffset=%math_2:2_<caster.var.y_diff>%;zOffset=%math_2:2_<caster.var.z_diff>%}","clickEvent":{"action":"copy_to_clipboard","value":"@Origin{xOffset=%math_2:2_<caster.var.x_diff>%;yOffset=%math_2:2_<caster.var.y_diff>%;zOffset=%math_2:2_<caster.var.z_diff>%}"},"hoverEvent":{"action":"show_text","contents":["Copy to Clipboard"]}}"} @self{targetCreative=true}
+
+                - delay 1 ]} @MIR{r=999;t=NEW_STRUCTURE_MARKER;limit=1;sort=NEAREST;targetarmorstands=true} ~onSwing
+
+GENERIC-Location_Stick:
+  Id: STICK
+  Display: "Location Stick"
+  Lore:
+    - "Displays your current co-ords."
+  Skills:
+    - skill{s=[ - delay 1
+
+                - message{m=""} @self{targetCreative=true}
+                - jsonmessage{m="{"text":"X,Y,Z = @Location{c=%math_1:1_<caster.l.x.double>%,%math_2:2_<caster.l.y.double>%,%math_1:1_<caster.l.z.double>%}","clickEvent":{"action":"copy_to_clipboard","value":"@Location{c=%math_1:1_<caster.l.x.double>%,%math_2:2_<caster.l.y.double>%,%math_1:1_<caster.l.z.double>%}"},"hoverEvent":{"action":"show_text","contents":["Copy to Clipboard"]}}"} @self{targetCreative=true}
+
+                - delay 1 ]} @MIR{r=999;t=NEW_STRUCTURE_MARKER;limit=1;sort=NEAREST;targetarmorstands=true} ~onSwing
+
+GENERIC-PILLAGER_BANNER:
+  Id: BANNER
+  BannerLayers:
+    - CYAN RHOMBUS_MIDDLE
+    - LIGHT_GRAY STRIPE_BOTTOM
+    - GRAY STRIPE_CENTER
+    - LIGHT_GRAY BORDER 
+    - BLACK STRIPE_MIDDLE 
+    - LIGHT_GRAY HALF_HORIZONTAL
+    - LIGHT_GRAY CIRCLE_MIDDLE
+    - BLACK BORDER 
+
+### ------------------------------ ###

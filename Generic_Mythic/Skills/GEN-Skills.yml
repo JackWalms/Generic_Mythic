@@ -1,0 +1,45 @@
+GENERIC-Item_Drop:
+  Skills:
+    - dropitem{i=<skill.internal>} @self
+    - delay 1
+    - aura{oT=[
+              - glow{color=WHITE}
+              - holo{text="<skill.name>";time=2} @origin{yOffset=0.4} ?onground
+              ];name=drop;i=1;d=99999} @ItemsInRadius{r=3;conditions=[  - entityItemType{i=<skill.internal>} true ]}}
+
+GENERIC-Effect-Level_Up:
+  Skills:
+    - summon{t=GEN-EXP-1;a=20;r=2} @self
+    - summon{t=GEN-EXP-2;a=15;r=2} @self
+    - summon{t=GEN-EXP-3;a=10;r=2} @self
+    - summon{t=GEN-EXP-4;a=5 ;r=2} @self
+    - delay 10
+    - sound{s=entity.player.levelup} @self
+
+GENERIC-Effect-Head_Shake:
+  Skills:
+    - velocity{m=set;x=0;y=-1;z=0;repeat=200;repeatInterval=1} @self
+    - skill{s=[ - effect:spin{duration=3;velocity=15}
+
+                - delay 3
+
+                - effect:spin{duration=3;velocity=-14}
+
+                - delay 3
+
+                - effect:spin{duration=3;velocity=-14}
+
+                - delay 3
+
+                - effect:spin{duration=3;velocity=15} ];repeat=2;repeatInterval=12} @Self
+
+GENERIC-Effect-Exclamation_Point:
+  Skills:
+    # bottom point
+    - particles{particle=REDDUST;color=#01FF00;size=0.75;a=1;hs=0.00;vs=0.00} @Rectangle{x=0.5;y=0.5;z=0.5;xOffset=-0.20;zOffset=-0.20;d=4;f=false;r=0,0,0;yOffset=3.00;fill=true}
+
+    - particles{particle=REDDUST;color=#01FF00;size=0.75;a=1;hs=0.00;vs=0.00} @Rectangle{x=0.5;y=0.5;z=0.5;xOffset=-0.20;zOffset=-0.20;d=4;f=false;r=0,0,0;yOffset=4.25;fill=true}
+    - particles{particle=REDDUST;color=#01FF00;size=0.75;a=1;hs=0.00;vs=0.00} @Rectangle{x=0.5;y=0.5;z=0.5;xOffset=-0.20;zOffset=-0.20;d=4;f=false;r=0,0,0;yOffset=4.75;fill=true}
+    - particles{particle=REDDUST;color=#01FF00;size=0.75;a=1;hs=0.00;vs=0.00} @Rectangle{x=0.5;y=0.5;z=0.5;xOffset=-0.20;zOffset=-0.20;d=4;f=false;r=0,0,0;yOffset=5.25;fill=true}
+    - particles{particle=REDDUST;color=#01FF00;size=0.75;a=1;hs=0.00;vs=0.00} @Rectangle{x=0.5;y=0.5;z=0.5;xOffset=-0.20;zOffset=-0.20;d=4;f=false;r=0,0,0;yOffset=5.75;fill=true}
+    - particles{particle=REDDUST;color=#01FF00;size=0.75;a=1;hs=0.00;vs=0.00} @Rectangle{x=0.5;y=0.5;z=0.5;xOffset=-0.20;zOffset=-0.20;d=4;f=false;r=0,0,0;yOffset=6.25;fill=true}

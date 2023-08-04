@@ -1,0 +1,64 @@
+
+GENERIC-EXP-1-XPLESS:
+  Type: EXPERIENCE_ORB
+  Options:
+    Experience: 0
+  Skills:
+    - scale{s=2;delay=1} @self ~onTimer:1
+    - scale{s=2;delay=1} @self ~onSpawn
+
+GENERIC-EXP-2-XPLESS:
+  Type: EXPERIENCE_ORB
+  Options:
+    Experience: 0
+  Skills:
+    - scale{s=3;delay=1} @self ~onTimer:1
+    - scale{s=3;delay=1} @self ~onSpawn
+
+GENERIC-EXP-3-XPLESS:
+  Type: EXPERIENCE_ORB
+  Options:
+    Experience: 0
+  Skills:
+    - scale{s=4;delay=1} @self ~onTimer:1
+    - scale{s=4;delay=1} @self ~onSpawn
+
+GENERIC-EXP-4-XPLESS:
+  Type: EXPERIENCE_ORB
+  Options:
+    Experience: 0
+  Skills:
+    - scale{s=5;delay=1} @self ~onTimer:1
+    - scale{s=5;delay=1} @self ~onSpawn
+    
+GENERIC-EXP-1:
+  Type: EXPERIENCE_ORB
+  Options:
+    Experience: 25
+  Skills:
+    - scale{s=5;delay=1;wait=1} @self ~onTimer:1
+    - scale{s=5;delay=1;wait=1} @self ~onSpawn
+
+GENERIC-EXP-2:
+  Type: EXPERIENCE_ORB
+  Options:
+    Experience: 100
+  Skills:
+    - scale{s=10;delay=1;wait=1} @self ~onTimer:1
+    - scale{s=10;delay=1;wait=1} @self ~onSpawn
+
+GENERIC-EXP-3:
+  Type: EXPERIENCE_ORB
+  Options:
+    Experience: 250
+  Skills:
+    - scale{s=15;delay=1;wait=1} @self ~onTimer:1
+    - scale{s=15;delay=1;wait=1} @self ~onSpawn
+
+GENERIC-EXP-4:
+  Type: EXPERIENCE_ORB
+  Options:
+    Experience: 500
+  Skills:
+    - scale{s=20;delay=1;wait=1} @self ~onTimer:1
+    - scale{s=20;delay=1;wait=1} @self ~onSpawn

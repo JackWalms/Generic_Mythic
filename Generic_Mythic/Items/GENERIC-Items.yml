@@ -29,7 +29,7 @@ GENERIC-Location_Stick:
                 - message{m=""} @self{targetCreative=true}
                 - jsonmessage{m="{"text":"X,Y,Z = @Location{c=%math_1:1_<caster.l.x.double>%,%math_2:2_<caster.l.y.double>%,%math_1:1_<caster.l.z.double>%}","clickEvent":{"action":"copy_to_clipboard","value":"@Location{c=%math_1:1_<caster.l.x.double>%,%math_2:2_<caster.l.y.double>%,%math_1:1_<caster.l.z.double>%}"},"hoverEvent":{"action":"show_text","contents":["Copy to Clipboard"]}}"} @self{targetCreative=true}
 
-                - delay 1 ]} @MIR{r=999;t=NEW_STRUCTURE_MARKER;limit=1;sort=NEAREST;targetarmorstands=true} ~onSwing
+                - delay 1 ]} @MIR{r=999;t=GENERIC-NEW_STRUCTURE_MARKER;limit=1;sort=NEAREST;targetarmorstands=true} ~onSwing
 
 GENERIC-PILLAGER_BANNER:
   Id: BANNER

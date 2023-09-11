@@ -40,10 +40,10 @@ GENERIC-Effect-Head_Shake:
 GENERIC-Effect-Exclamation_Point:
   Skills:
     # bottom point
-    - particles{particle=REDDUST;color=#01FF00;size=0.75;a=1;hs=0.00;vs=0.00} @Rectangle{x=0.5;y=0.5;z=0.5;xOffset=-0.20;zOffset=-0.20;d=4;f=false;r=0,0,0;yOffset=3.00;fill=true}
+    - particles{particle=REDDUST;color=#01FF00;size=1.5;a=1;hs=0.00;vs=0.00} @Rectangle{x=0.5;y=0.5;z=0.5;xOffset=-0.20;zOffset=-0.20;d=2;f=false;r=0,0,0;yOffset=3.00;fill=true}
 
-    - particles{particle=REDDUST;color=#01FF00;size=0.75;a=1;hs=0.00;vs=0.00} @Rectangle{x=0.5;y=0.5;z=0.5;xOffset=-0.20;zOffset=-0.20;d=4;f=false;r=0,0,0;yOffset=4.25;fill=true}
-    - particles{particle=REDDUST;color=#01FF00;size=0.75;a=1;hs=0.00;vs=0.00} @Rectangle{x=0.5;y=0.5;z=0.5;xOffset=-0.20;zOffset=-0.20;d=4;f=false;r=0,0,0;yOffset=4.75;fill=true}
-    - particles{particle=REDDUST;color=#01FF00;size=0.75;a=1;hs=0.00;vs=0.00} @Rectangle{x=0.5;y=0.5;z=0.5;xOffset=-0.20;zOffset=-0.20;d=4;f=false;r=0,0,0;yOffset=5.25;fill=true}
-    - particles{particle=REDDUST;color=#01FF00;size=0.75;a=1;hs=0.00;vs=0.00} @Rectangle{x=0.5;y=0.5;z=0.5;xOffset=-0.20;zOffset=-0.20;d=4;f=false;r=0,0,0;yOffset=5.75;fill=true}
-    - particles{particle=REDDUST;color=#01FF00;size=0.75;a=1;hs=0.00;vs=0.00} @Rectangle{x=0.5;y=0.5;z=0.5;xOffset=-0.20;zOffset=-0.20;d=4;f=false;r=0,0,0;yOffset=6.25;fill=true}
+    - particles{particle=REDDUST;color=#01FF00;size=1.5;a=1;hs=0.00;vs=0.00} @Rectangle{x=0.5;y=0.5;z=0.5;xOffset=-0.20;zOffset=-0.20;d=2;f=false;r=0,0,0;yOffset=4.25;fill=true}
+    - particles{particle=REDDUST;color=#01FF00;size=1.5;a=1;hs=0.00;vs=0.00} @Rectangle{x=0.5;y=0.5;z=0.5;xOffset=-0.20;zOffset=-0.20;d=2;f=false;r=0,0,0;yOffset=4.75;fill=true}
+    - particles{particle=REDDUST;color=#01FF00;size=1.5;a=1;hs=0.00;vs=0.00} @Rectangle{x=0.5;y=0.5;z=0.5;xOffset=-0.20;zOffset=-0.20;d=2;f=false;r=0,0,0;yOffset=5.25;fill=true}
+    - particles{particle=REDDUST;color=#01FF00;size=1.5;a=1;hs=0.00;vs=0.00} @Rectangle{x=0.5;y=0.5;z=0.5;xOffset=-0.20;zOffset=-0.20;d=2;f=false;r=0,0,0;yOffset=5.75;fill=true}
+    - particles{particle=REDDUST;color=#01FF00;size=1.5;a=1;hs=0.00;vs=0.00} @Rectangle{x=0.5;y=0.5;z=0.5;xOffset=-0.20;zOffset=-0.20;d=2;f=false;r=0,0,0;yOffset=6.25;fill=true}
